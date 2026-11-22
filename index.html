@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legião Técnica Group | Engenharia, Manutenção Técnica & Soluções Digitais</title>
+  <meta name="description" content="Suporte técnico especializado em Elétrica, Eletrônica, Informática, Segurança da Informação, Criação de Sites, Cartões NFC e Mini Aplicativos em Guaiçara - SP e Região." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            obsidian: '#06070a',
+            surface: '#0e1117',
+            card: '#141821',
+            gold: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .tech-grid {
+      background-image: 
+        linear-gradient(to bottom, rgba(6, 7, 10, 0.86) 0%, rgba(6, 7, 10, 0.94) 100%),
+        linear-gradient(to right, rgba(245, 158, 11, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(245, 158, 11, 0.05) 1px, transparent 1px),
+        url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=85');
+      background-size: cover, 48px 48px, 48px 48px, cover;
+      background-position: center;
+      background-attachment: fixed, scroll, scroll, fixed;
+    }
+    @media (max-width: 768px) {
+      .tech-grid {
+        background-attachment: scroll;
+      }
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-slate-200 font-sans antialiased selection:bg-gold-500 selection:text-obsidian">
+
+  <!-- BARRA SUPERIOR DE STATUS & CONTATO RÁPIDO -->
+  <div class="bg-surface border-b border-slate-800/80 py-2 px-4 text-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5 text-slate-400">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span>Atendimento Técnico & Digital • <strong class="text-slate-200">Guaiçara - SP e Região</strong></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://apps.legiaotecnica.com.br" target="_blank" class="text-slate-300 hover:text-gold-400 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-grid-2 text-gold-400"></i>
+          <span>18 Mini Apps Gratuitos</span>
+        </a>
+        <span class="text-slate-700">|</span>
+        <a href="https://wa.me/5514996481365" target="_blank" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1.5">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>(14) 99648-1365</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR PRINCIPAL -->
+  <header class="sticky top-0 z-40 bg-obsidian/85 backdrop-blur-xl border-b border-slate-800/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Marca LTG -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-obsidian shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-microchip text-xl"></i>
+        </div>
+        <div>
+          <span class="text-lg sm:text-xl font-extrabold text-white tracking-tight block leading-none">
+            Legião Técnica <span class="text-gold-400">Group</span>
+          </span>
+          <span class="font-mono text-[10px] tracking-[0.18em] text-slate-400 uppercase mt-1 block">
+            ENGENHARIA • TI • ECOSSISTEMA DIGITAL
+          </span>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#pilares" class="hover:text-gold-400 transition-colors">Soluções</a>
+        <a href="#ecossistema" class="hover:text-gold-400 transition-colors">Ecossistema Online</a>
+        <a href="#sobre" class="hover:text-gold-400 transition-colors">Sobre a LTG</a>
+        <a href="#atendimento" class="hover:text-gold-400 transition-colors">Abrir Chamado / Orçamento</a>
+      </nav>
+
+      <!-- Botões de Ação -->
+      <div class="flex items-center gap-3">
+        <a href="https://apps.legiaotecnica.com.br" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-bold transition-all">
+          <i class="fa-solid fa-toolbox text-gold-400"></i>
+          <span>Central de Apps</span>
+        </a>
+        <a href="#atendimento" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-obsidian text-xs sm:text-sm font-extrabold transition-all shadow-lg shadow-gold-500/20">
+          <span>Falar com Especialista</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative tech-grid pt-20 pb-24 lg:pt-28 lg:pb-32 border-b border-slate-800/80 overflow-hidden">
+    <!-- Luz de fundo sutil -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-gold-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-gold-500/30 text-gold-400 font-mono text-xs font-semibold mb-7">
+          <i class="fa-solid fa-bolt"></i>
+          <span>INFRAESTRUTURA FÍSICA + PRESENÇA DIGITAL INTEGRADA</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+          Conectamos sua empresa à <span class="gradient-gold">Engenharia Técnica</span> e ao <span class="gradient-gold">Mundo Digital</span>.
+        </h1>
+
+        <p class="text-slate-300 text-base sm:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
+          Do suporte especializado em Elétrica, Eletrônica e Informática à criação de Sites de Alta Conversão, Cartões Inteligentes NFC e Ferramentas Web sob medida.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#atendimento" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gold-500 hover:bg-gold-400 text-obsidian font-extrabold px-8 py-4 rounded-xl text-base transition-all shadow-xl shadow-gold-500/20">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Iniciar Atendimento Inteligente</span>
+          </a>
+          <a href="#ecossistema" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-card hover:bg-slate-800 text-white border border-slate-700 font-bold px-8 py-4 rounded-xl text-base transition-all">
+            <span>Explorar Plataformas LTG</span>
+            <i class="fa-solid fa-chevron-down text-xs text-gold-400"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Barra de Métricas / Autoridade -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-16 pt-12 border-t border-slate-800/80">
+        <div class="bg-card/70 backdrop-blur-sm p-5 rounded-2xl border border-slate-800/90 text-center">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-gold-400">4 Áreas</p>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Elétrica, Eletrônica, TI & Web</p>
+        </div>
+        <div class="bg-card/70 backdrop-blur-sm p-5 rounded-2xl border border-slate-800/90 text-center">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-white">18 Apps</p>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Ferramentas técnicas gratuitas</p>
+        </div>
+        <div class="bg-card/70 backdrop-blur-sm p-5 rounded-2xl border border-slate-800/90 text-center">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-white">42+ Modelos</p>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Estruturas web prontas para empresas</p>
+        </div>
+        <div class="bg-card/70 backdrop-blur-sm p-5 rounded-2xl border border-slate-800/90 text-center">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-emerald-400">100% Direto</p>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Parceiros técnicos homologados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OS 4 PILARES DE SOLUÇÕES -->
+  <section id="pilares" class="py-24 bg-surface border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="font-mono text-gold-400 text-xs font-bold tracking-[0.2em] uppercase">Soluções Integradas</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">O Que a Legião Técnica Faz Por Você</h2>
+        <p class="text-slate-400 text-sm sm:text-base mt-3">Atuação completa em infraestrutura física, manutenção especializada e transformação digital para empresas e residências.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Pilar 1 -->
+        <div class="bg-card rounded-3xl p-8 border border-slate-800 hover:border-gold-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-13 h-13 w-12 h-12 rounded-2xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl border border-gold-500/20">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900 text-slate-400 border border-slate-800">Campo & Bancada</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Manutenção & Suporte Técnico</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Conexão direta com técnicos parceiros homologados para diagnóstico, reparo e instalação com padrão normativo (NBR 5410) e garantia de execução.
+            </p>
+            <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-gold-400 text-xs"></i> Instalações Elétricas, Quadros e Nobreaks</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-gold-400 text-xs"></i> Reparo de Placas Eletrônicas e Automação</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-gold-400 text-xs"></i> Suporte em Informática, Redes Wi-Fi e Segurança</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-800/80">
+            <button onclick="selecionarSetorAtendimento('Manutenção Técnica (Elétrica / Eletrônica / TI)')" class="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 font-bold text-sm">
+              <span>Solicitar Técnico Parceiro</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="bg-card rounded-3xl p-8 border border-slate-800 hover:border-gold-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-xl border border-sky-500/20">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900 text-slate-400 border border-slate-800">Presença Digital</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Criação de Sites & Google Maps</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Sites ultrarrápidos hospedados em nuvem global, projetados para posicionar sua empresa no topo das buscas locais e converter visitantes em pedidos no WhatsApp.
+            </p>
+            <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-sky-400 text-xs"></i> Páginas Sob Medida com Simuladores de Orçamento</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-sky-400 text-xs"></i> Catálogo com +42 Estruturas Prontas por Segmento</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-sky-400 text-xs"></i> Otimização Google Meu Negócio (GMN) & Domínio Próprio</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+            <a href="https://sites.legiaotecnica.com.br" target="_blank" class="inline-flex items-center gap-2 text-sky-400 hover:text-sky-300 font-bold text-sm">
+              <span>Ver Catálogo de Sites</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+            <button onclick="selecionarSetorAtendimento('Criação de Site Profissional / Google Meu Negócio')" class="text-xs font-bold text-slate-300 hover:text-white underline">
+              Pedir Orçamento de Site
+            </button>
+          </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="bg-card rounded-3xl p-8 border border-slate-800 hover:border-gold-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl border border-emerald-500/20">
+                <i class="fa-solid fa-id-card-clip"></i>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900 text-slate-400 border border-slate-800">Networking Inteligente</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Cartões Digitais & Chip NFC</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Apresente todos os seus contatos, portfólio, catálogo e chave PIX com apenas um toque no celular do cliente — sem precisar instalar aplicativos.
+            </p>
+            <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Cartão Digital Interativo com QR Code Permanente</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Cartão Físico em PVC com Tecnologia por Aproximação (NFC)</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-emerald-400 text-xs"></i> Atualização de Dados sem Precisar Reimprimir</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-800/80">
+            <button onclick="selecionarSetorAtendimento('Cartão de Visita Digital / Cartão Físico NFC')" class="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-bold text-sm">
+              <span>Encomendar Meu Cartão Inteligente</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div class="bg-card rounded-3xl p-8 border border-slate-800 hover:border-gold-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl border border-purple-500/20">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider px-3 py-1 rounded-full bg-slate-900 text-slate-400 border border-slate-800">Capacitação & Ferramentas</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Cursos EAD & Locação Operacional</h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Qualificação prática para profissionais técnicos e suporte operacional com locação de equipamentos e ferramentas revisadas para obra e campo.
+            </p>
+            <ul class="mt-5 space-y-2.5 text-sm text-slate-300">
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-purple-400 text-xs"></i> Treinamentos Técnicos e Segurança da Informação</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-purple-400 text-xs"></i> Locação de Ferramentas e Máquinas para Campo</li>
+              <li class="flex items-center gap-2.5"><i class="fa-solid fa-check text-purple-400 text-xs"></i> Calculadoras e Checklists Técnicos Online</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+            <a href="https://rocadeiras.legiaotecnica.com.br" target="_blank" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-bold text-sm">
+              <span>Simulador de Locação</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+            <button onclick="selecionarSetorAtendimento('Cursos EAD / Locação de Equipamentos')" class="text-xs font-bold text-slate-300 hover:text-white underline">
+              Consultar Disponibilidade
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VITRINE DO ECOSSISTEMA ONLINE LTG (LINKS DIRETOS) -->
+  <section id="ecossistema" class="py-24 bg-obsidian border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div>
+          <span class="font-mono text-gold-400 text-xs font-bold tracking-[0.2em] uppercase">Acesso Rápido às Plataformas</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Ecossistema Digital Legião Técnica</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">Acesse diretamente nossas centrais de aplicativos técnicos, modelos de sites e ferramentas operacionais.</p>
+        </div>
+        <a href="https://apps.legiaotecnica.com.br" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-obsidian font-extrabold text-sm transition-all shrink-0">
+          <span>Abrir Central Completa (18 Apps)</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- App Destaque 1 -->
+        <a href="https://apps.legiaotecnica.com.br" target="_blank" class="group bg-card p-6 rounded-2xl border border-slate-800 hover:border-gold-500/60 transition-all">
+          <div class="w-11 h-11 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-grid-2"></i>
+          </div>
+          <span class="font-mono text-[10px] text-gold-400 uppercase font-bold">HUB CENTRAL</span>
+          <h3 class="text-lg font-bold text-white mt-1">Central de Mini Apps</h3>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">18 ferramentas gratuitas: Lei de Ohm, NBR 5410, IPv4, QR Code Wi-Fi, Checklists e mais.</p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-gold-400">
+            Acessar agora <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </span>
+        </a>
+
+        <!-- App Destaque 2 -->
+        <a href="https://sites.legiaotecnica.com.br" target="_blank" class="group bg-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/60 transition-all">
+          <div class="w-11 h-11 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
+          <span class="font-mono text-[10px] text-sky-400 uppercase font-bold">WEB & NEGÓCIOS</span>
+          <h3 class="text-lg font-bold text-white mt-1">Catálogo de Sites</h3>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Estruturas prontas e personalizadas para Comércio, Saúde, Profissões e Indústria.</p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-sky-400">
+            Explorar modelos <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </span>
+        </a>
+
+        <!-- App Destaque 3 -->
+        <a href="https://guia-rocadeira.legiaotecnica.com.br" target="_blank" class="group bg-card p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/60 transition-all">
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-oil-can"></i>
+          </div>
+          <span class="font-mono text-[10px] text-emerald-400 uppercase font-bold">UTILIDADES • CAMPO</span>
+          <h3 class="text-lg font-bold text-white mt-1">Guia de Roçadeiras 2T</h3>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Dosador exato de óleo 2 tempos, EPIs obrigatórios e checklist de partida a frio.</p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400">
+            Abrir manual <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </span>
+        </a>
+
+        <!-- App Destaque 4 -->
+        <a href="https://rocadeiras.legiaotecnica.com.br" target="_blank" class="group bg-card p-6 rounded-2xl border border-slate-800 hover:border-purple-500/60 transition-all">
+          <div class="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <span class="font-mono text-[10px] text-purple-400 uppercase font-bold">LEGIÃO LOCAÇÕES</span>
+          <h3 class="text-lg font-bold text-white mt-1">Simulador de Locação</h3>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">Cálculo instantâneo de diárias de ferramentas e envio de proposta pelo WhatsApp.</p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-purple-400">
+            Simular diárias <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A LEGIÃO TÉCNICA GROUP -->
+  <section id="sobre" class="py-20 bg-surface border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7">
+          <span class="font-mono text-gold-400 text-xs font-bold tracking-[0.2em] uppercase">Quem Somos</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 leading-tight">
+            Rigor técnico na bancada e inovação na presença digital.
+          </h2>
+          <p class="text-slate-300 text-base mt-5 leading-relaxed">
+            A <strong class="text-white">Legião Técnica Group</strong> nasceu com o propósito de unir o atendimento técnico de confiança — em Elétrica, Eletrônica e Tecnologia da Informação — às ferramentas digitais mais modernas do mercado.
+          </p>
+          <p class="text-slate-400 text-sm sm:text-base mt-4 leading-relaxed">
+            Atuando em <strong class="text-slate-200">Guaiçara - SP e toda a região</strong>, conectamos clientes a técnicos parceiros qualificados e ajudamos empresas locais a conquistarem autoridade na internet com sites próprios, rápidos e integrados ao Google.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-card p-7 rounded-3xl border border-slate-800 space-y-5">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-shield-check"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Transparência & Conformidade LGPD</h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Domínios registrados em nome do cliente, orçamentos claros e respeito total à privacidade de dados.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Rede de Técnicos Parceiros</h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Triagem inteligente para encaminhar cada demanda ao especialista certo na sua cidade.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-rocket"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Engenharia Web Moderna</h4>
+                <p class="text-xs text-slate-400 mt-1 leading-relaxed">Sistemas leves, responsivos e sem mensalidades abusivas de plataformas engessadas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- FAIXA VISUAL PARALLAX DE ENGENHARIA & CONFIANÇA -->
+  <section class="relative py-24 border-b border-slate-800/80" style="background-image: linear-gradient(rgba(6, 7, 10, 0.82), rgba(6, 7, 10, 0.90)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=85'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="font-mono text-gold-400 text-xs font-bold tracking-[0.25em] uppercase">Padrão Técnico & Agilidade</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 leading-snug">
+        “Soluções pensadas por quem entende da bancada ao servidor em nuvem.”
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base mt-4 max-w-2xl mx-auto">
+        Atendimento direto em Guaiçara - SP e região para demandas técnicas presenciais, e alcance nacional para sites, sistemas e ferramentas digitais.
+      </p>
+    </div>
+  </section>
+
+  <!-- TRIAGEM INTELIGENTE DE ATENDIMENTO (CONVERSÃO WHATSAPP) -->
+  <section id="atendimento" class="py-24 bg-obsidian relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-card rounded-3xl border border-slate-800 p-6 sm:p-10 lg:p-12 glow-amber">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-mono text-xs font-bold">
+            <i class="fa-brands fa-whatsapp"></i> CANAL DIRETO • RESPOSTA ÁGIL
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Como Podemos Ajudar Hoje?</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2">Selecione o setor desejado abaixo para gerar sua solicitação formatada direto no nosso WhatsApp.</p>
+        </div>
+
+        <form id="form-ltg" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Seu Nome ou Empresa *</label>
+              <input type="text" id="ltg-nome" required placeholder="Ex: João Silva / Comercial Souza" class="w-full bg-obsidian border border-slate-700 focus:border-gold-500 rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" />
+            </div>
+
+            <div>
+              <label class="block font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Cidade / Região *</label>
+              <input type="text" id="ltg-cidade" required placeholder="Ex: Guaiçara - SP" class="w-full bg-obsidian border border-slate-700 focus:border-gold-500 rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Área de Atendimento *</label>
+            <select id="ltg-setor" class="w-full bg-obsidian border border-slate-700 focus:border-gold-500 rounded-xl px-4 py-3.5 text-white text-sm outline-none transition-colors">
+              <option value="Manutenção Técnica (Elétrica / Eletrônica / TI)">🔧 Manutenção Técnica (Elétrica / Eletrônica / TI)</option>
+              <option value="Criação de Site Profissional / Google Meu Negócio">💻 Criação de Site Profissional / Google Meu Negócio</option>
+              <option value="Cartão de Visita Digital / Cartão Físico NFC">💳 Cartão de Visita Digital / Cartão Físico NFC</option>
+              <option value="Cursos EAD / Locação de Equipamentos">🎓 Cursos EAD / Locação de Equipamentos</option>
+              <option value="Parceria Técnica / Outro Assunto">🤝 Parceria Técnica / Outro Assunto</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-mono text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Descreva Brevemente sua Necessidade</label>
+            <textarea id="ltg-detalhes" rows="3" placeholder="Ex: Gostaria de um orçamento para site da minha empresa ou visita técnica..." class="w-full bg-obsidian border border-slate-700 focus:border-gold-500 rounded-xl px-4 py-3 text-white text-sm outline-none transition-colors"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-obsidian font-extrabold py-4 px-6 rounded-xl text-base flex items-center justify-center gap-3 transition-all shadow-lg shadow-emerald-500/20">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <span>Enviar Solicitação via WhatsApp</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ UNIFICADO -->
+  <footer class="bg-surface border-t border-slate-800/80 pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
+        <!-- Coluna 1 -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-gold-500 flex items-center justify-center text-obsidian">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <span class="text-lg font-extrabold text-white">Legião Técnica <span class="text-gold-400">Group</span></span>
+          </div>
+          <p class="text-slate-400 text-sm mt-4 max-w-md leading-relaxed">
+            Conectamos você aos melhores técnicos parceiros em Manutenção e Suporte Técnico em Elétrica, Eletrônica e Informática; além de Soluções Web, Cartões NFC e Ferramentas Digitais.
+          </p>
+          <div class="mt-5 space-y-1.5 text-xs text-slate-400">
+            <p><i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i>(14) 99648-1365 (WhatsApp Comercial)</p>
+            <p><i class="fa-regular fa-envelope text-gold-400 mr-2"></i>joaomarcos@legiaotecnica.com.br</p>
+            <p><i class="fa-solid fa-location-dot text-gold-400 mr-2"></i>Guaiçara - SP e Região</p>
+          </div>
+        </div>
+
+        <!-- Coluna 2 -->
+        <div>
+          <h4 class="font-mono text-white font-bold text-xs uppercase tracking-wider mb-4">Plataformas LTG</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="https://apps.legiaotecnica.com.br" target="_blank" class="hover:text-gold-400 transition-colors">Central de Mini Apps (18)</a></li>
+            <li><a href="https://sites.legiaotecnica.com.br" target="_blank" class="hover:text-gold-400 transition-colors">Catálogo de Criação de Sites</a></li>
+            <li><a href="https://rocadeiras.legiaotecnica.com.br" target="_blank" class="hover:text-gold-400 transition-colors">Simulador de Locação</a></li>
+            <li><a href="https://guia-rocadeira.legiaotecnica.com.br" target="_blank" class="hover:text-gold-400 transition-colors">Guia Operacional 2T</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3 -->
+        <div>
+          <h4 class="font-mono text-white font-bold text-xs uppercase tracking-wider mb-4">Institucional & Legal</h4>
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><a href="#sobre" class="hover:text-gold-400 transition-colors">Sobre a Legião Técnica</a></li>
+            <li><a href="#atendimento" class="hover:text-gold-400 transition-colors">Seja um Técnico Parceiro</a></li>
+            <li><a href="https://www.legiaotecnica.com.br/politica-de-privacidade" class="hover:text-gold-400 transition-colors">Política de Privacidade & LGPD</a></li>
+            <li><a href="https://www.legiaotecnica.com.br/termos-de-uso" class="hover:text-gold-400 transition-colors">Termos de Uso</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© <span id="ano-ltg"></span> Legião Técnica Group. Todos os direitos reservados.</p>
+        <p class="font-mono">Engenharia Web • www.legiaotecnica.com.br</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/5514996481365?text=Ol%C3%A1%20Legi%C3%A3o%20T%C3%A9cnica!%20Vim%20pelo%20site%20principal%20e%20gostaria%20de%20atendimento." target="_blank" aria-label="WhatsApp Legião Técnica" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-obsidian flex items-center justify-center text-2xl shadow-2xl shadow-emerald-500/30 hover:scale-110 transition-transform">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- SCRIPT DE TRIAGEM WHATSAPP -->
+  <script>
+    document.getElementById("ano-ltg").textContent = new Date().getFullYear();
+
+    function selecionarSetorAtendimento(setor) {
+      const select = document.getElementById("ltg-setor");
+      for (let opt of select.options) {
+        if (opt.value === setor) {
+          select.value = setor;
+          break;
+        }
+      }
+      document.getElementById("atendimento").scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.getElementById("form-ltg").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nome = document.getElementById("ltg-nome").value.trim();
+      const cidade = document.getElementById("ltg-cidade").value.trim();
+      const setor = document.getElementById("ltg-setor").value;
+      const detalhes = document.getElementById("ltg-detalhes").value.trim() || "Gostaria de mais informações.";
+
+      const mensagem = `Olá, *Legião Técnica Group*! Vim pelo site oficial:\n\n` +
+                       `👤 *Nome/Empresa:* ${nome}\n` +
+                       `📍 *Cidade:* ${cidade}\n` +
+                       `🎯 *Setor:* ${setor}\n` +
+                       `📝 *Detalhes:* ${detalhes}`;
+
+      window.open(`https://wa.me/5514996481365?text=${encodeURIComponent(mensagem)}`, "_blank");
+    });
+  </script>
+</body>
+</html>
