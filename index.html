@@ -545,4 +545,80 @@
 
     <!-- Barra de Direitos e Governança Legal -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
-      <p>Legião Técnica Group © <span id="ano-ltg">
+      <p>Legião Técnica Group © <span id="ano-ltg"></span> Direitos Reservados • Webmaster JM</p>
+      <span id="badge-visitas" class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-300 bg-obsidian border border-slate-800 px-3 py-1 rounded-full">
+        <i class="fa-solid fa-eye text-gold-400"></i>
+        <span id="contador-visitas">1</span> visitantes
+      </span>
+      <div class="flex items-center gap-3 flex-wrap justify-center">
+        <a href="https://mapa.legiaotecnica.com.br" class="text-gold-400 hover:text-gold-300 font-semibold transition">Mapa do Site</a>
+        <span>•</span>
+        <a href="https://termos.legiaotecnica.com.br/#lgpd" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition">LGPD</a>
+        <span>•</span>
+        <a href="https://termos.legiaotecnica.com.br/#termos" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition">Termos de Uso</a>
+        <span>•</span>
+        <a href="https://termos.legiaotecnica.com.br/#cookies" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition">Políticas de Cookies</a>
+        <span>•</span>
+        <a href="https://termos.legiaotecnica.com.br/#privacidade" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 transition">Política de Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <a href="https://wa.me/5514996481365?text=Ol%C3%A1%20Legi%C3%A3o%20T%C3%A9cnica!%20Vim%20pelo%20site%20principal%20e%20gostaria%20de%20atendimento." target="_blank" aria-label="WhatsApp Legião Técnica" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-obsidian flex items-center justify-center text-2xl shadow-2xl shadow-emerald-500/30 hover:scale-110 transition-transform">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- SCRIPTS (TRIAGEM WHATSAPP + CONTADOR DE VISITAS) -->
+  <script>
+    document.getElementById("ano-ltg").textContent = new Date().getFullYear();
+
+    document.getElementById("form-ltg").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nome = document.getElementById("ltg-nome").value.trim();
+      const cidade = document.getElementById("ltg-cidade").value.trim();
+      const setor = document.getElementById("ltg-setor").value;
+      const detalhes = document.getElementById("ltg-detalhes").value.trim() || "Gostaria de mais informações.";
+
+      const mensagem = `Olá, *Legião Técnica Group*! Vim pelo portal oficial:\n\n` +
+                       `👤 *Nome/Empresa:* ${nome}\n` +
+                       `📍 *Cidade/UF:* ${cidade}\n` +
+                       `🎯 *Divisão:* ${setor}\n` +
+                       `📝 *Detalhes:* ${detalhes}`;
+
+      window.open(`https://wa.me/5514996481365?text=${encodeURIComponent(mensagem)}`, "_blank");
+    });
+
+    (function() {
+      const badge = document.getElementById('badge-visitas');
+      const span = document.getElementById('contador-visitas');
+      if (!badge || !span) return;
+
+      const key = 'ltg-home-oficial-2026';
+      const flagUnico = 'ltg_unico_home_oficial_v1';
+      const cacheKey = 'ltg_unico_home_oficial_v1_valor';
+      const jaContabilizado = localStorage.getItem(flagUnico) === '1';
+
+      const valorCache = parseInt(localStorage.getItem(cacheKey) || '1', 10);
+      span.innerText = valorCache.toLocaleString('pt-BR');
+
+      const endpoint = jaContabilizado
+        ? `https://api.counterapi.dev/v1/joaomarcos-apps/${key}/`
+        : `https://api.counterapi.dev/v1/joaomarcos-apps/${key}/up`;
+
+      fetch(endpoint)
+        .then(res => res.json())
+        .then(data => {
+          if (data && typeof data.count === 'number' && data.count > 0) {
+            span.innerText = data.count.toLocaleString('pt-BR');
+            localStorage.setItem(cacheKey, String(data.count));
+            if (!jaContabilizado) {
+              localStorage.setItem(flagUnico, '1');
+            }
+          }
+        })
+        .catch(() => {});
+    })();
+  </script>
+</body>
+</html>
