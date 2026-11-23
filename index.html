@@ -596,24 +596,24 @@
       if (!badge || !span) return;
 
       const BASE_INICIAL = 300;
-      const key = 'ltg-home-oficial-2026';
-      const flagUnico = 'ltg_unico_home_v2';
-      const cacheKey = 'ltg_unico_home_v2_valor';
+      const ns = 'legiaotecnica-com-br';
+      const key = 'home-oficial';
+      const flagUnico = 'ltg_unico_abacus_v1';
+      const cacheKey = 'ltg_unico_abacus_v1_valor';
       const jaContabilizado = localStorage.getItem(flagUnico) === '1';
 
-      const valorCache = parseInt(localStorage.getItem(cacheKey) || String(BASE_INICIAL + 1), 10);
+      const valorCache = parseInt(localStorage.getItem(cacheKey) || String(BASE_INICIAL), 10);
       span.innerText = valorCache.toLocaleString('pt-BR');
 
       const endpoint = jaContabilizado
-        ? `https://api.counterapi.dev/v2/joaomarcos-apps/${key}`
-        : `https://api.counterapi.dev/v2/joaomarcos-apps/${key}/up`;
+        ? `https://abacus.jasoncameron.dev/get/${ns}/${key}`
+        : `https://abacus.jasoncameron.dev/hit/${ns}/${key}`;
 
       fetch(endpoint)
         .then(res => res.json())
-        .then(res => {
-          const raw = res && res.data && typeof res.data.up_count === 'number' ? res.data.up_count : null;
-          if (raw !== null && raw >= 0) {
-            const total = BASE_INICIAL + raw;
+        .then(data => {
+          if (data && typeof data.value === 'number' && data.value >= 0) {
+            const total = BASE_INICIAL + data.value;
             span.innerText = total.toLocaleString('pt-BR');
             localStorage.setItem(cacheKey, String(total));
             if (!jaContabilizado) {
