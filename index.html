@@ -589,40 +589,6 @@
 
       window.open(`https://wa.me/5514996481365?text=${encodeURIComponent(mensagem)}`, "_blank");
     });
-
-    (function() {
-      const badge = document.getElementById('badge-visitas');
-      const span = document.getElementById('contador-visitas');
-      if (!badge || !span) return;
-
-      const BASE_INICIAL = 300;
-      const ns = 'legiaotecnica-com-br';
-      const key = 'home-oficial';
-      const flagUnico = 'ltg_unico_abacus_v1';
-      const cacheKey = 'ltg_unico_abacus_v1_valor';
-      const jaContabilizado = localStorage.getItem(flagUnico) === '1';
-
-      const valorCache = parseInt(localStorage.getItem(cacheKey) || String(BASE_INICIAL), 10);
-      span.innerText = valorCache.toLocaleString('pt-BR');
-
-      const endpoint = jaContabilizado
-        ? `https://abacus.jasoncameron.dev/get/${ns}/${key}`
-        : `https://abacus.jasoncameron.dev/hit/${ns}/${key}`;
-
-      fetch(endpoint)
-        .then(res => res.json())
-        .then(data => {
-          if (data && typeof data.value === 'number' && data.value >= 0) {
-            const total = BASE_INICIAL + data.value;
-            span.innerText = total.toLocaleString('pt-BR');
-            localStorage.setItem(cacheKey, String(total));
-            if (!jaContabilizado) {
-              localStorage.setItem(flagUnico, '1');
-            }
-          }
-        })
-        .catch(() => {});
-    })();
   </script>
 </body>
 </html>
