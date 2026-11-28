@@ -15,13 +15,13 @@
 
   <main class="w-full max-w-md bg-zinc-900/90 border border-zinc-800 rounded-3xl p-6 shadow-2xl backdrop-blur-md">
     <div class="text-center border-b border-zinc-800 pb-6">
-      <div class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-emerald-600 p-[2px] shadow-lg mb-3">
-        <div class="w-full h-full bg-zinc-950 rounded-2xl flex items-center justify-center overflow-hidden">
-          <span class="font-brand text-2xl font-bold text-amber-400 tracking-wider">LTG</span>
+      <div class="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-amber-400 via-amber-500 to-emerald-600 p-[2px] shadow-xl mb-3">
+        <div class="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden p-1.5">
+          <img src="imagens/ltg-logo.png" alt="Logo Legião Técnica Group" class="w-full h-full object-contain" />
         </div>
       </div>
       <h1 class="font-brand text-xl font-bold tracking-wide text-white">LEGIÃO TÉCNICA</h1>
-      <p id="subtituloCartao" class="text-xs uppercase tracking-widest text-amber-400 font-bold mt-1">João Munhoz • Webmaster & Soluções Digitais</p>
+      <p id="subtituloCartao" class="text-xs uppercase tracking-widest text-amber-400 font-bold mt-1">João Marcos • Webmaster & Soluções Digitais</p>
       <p class="text-xs text-zinc-400 mt-2">Sites • Google Maps • Cartões Digitais NFC • Otimização</p>
     </div>
 
@@ -70,7 +70,7 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     if ((params.get("modo") || "").toLowerCase() === "nfc") {
-      document.getElementById("subtituloCartao").textContent = "Acesso NFC • João Munhoz • Legião Técnica";
+      document.getElementById("subtituloCartao").textContent = "Acesso NFC • João Marcos • Legião Técnica";
     }
 
     document.getElementById("qrImg").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(window.location.href)}`;
@@ -79,7 +79,7 @@
       const vcard = [
         "BEGIN:VCARD",
         "VERSION:3.0",
-        "FN:João Munhoz - Legião Técnica",
+        "FN:João Marcos - Legião Técnica",
         "ORG:Legião Técnica Group",
         "TITLE:Webmaster & Soluções Digitais",
         "TEL;TYPE=CELL,VOICE:+5514996481365",
